@@ -7,7 +7,7 @@ plugins {
 }
 
 group = "com.neomo.conventions"
-version = "0.1"
+version = "0.2"
 
 val kotlinVersion = "1.7.20"
 val shadowVersion = "7.1.2"
@@ -39,9 +39,19 @@ pluginBundle {
 
 gradlePlugin {
     plugins {
-        named("com.neomo.conventions.gcf").configure {
+        getByName("com.neomo.conventions.gcf") {
             displayName = "NEOMO GCF conventions"
             description = "NEOMO conventions for google cloud functions written in kotlin"
+        }
+
+        getByName("com.neomo.conventions.lambda") {
+            displayName = "NEOMO AWS lambda conventions"
+            description = "NEOMO conventions for lambda functions written in kotlin"
+        }
+
+        getByName("com.neomo.conventions.kotlin") {
+            displayName = "NEOMO kotlin conventions"
+            description = "NEOMO conventions for kotlin (ktlint, kotest, mockk)"
         }
     }
 }
