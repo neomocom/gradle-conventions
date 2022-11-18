@@ -1,5 +1,7 @@
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+package com.neomo.conventions
+
 import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 
 val gcloudInvokerVersion: String by project
@@ -68,7 +70,6 @@ tasks.register<Test>("systemTest") {
     testClassesDirs = systemTest.output.classesDirs
     classpath = configurations[systemTest.runtimeClasspathConfigurationName] + configurations.testRuntimeClasspath.get() + systemTest.output
     shouldRunAfter(tasks.test)
-
 }
 
 tasks.register<Sync>("gcfDistribution") {
