@@ -7,7 +7,7 @@ plugins {
 }
 
 group = "com.neomo.conventions"
-version = "0.2.1"
+version = "0.2.2"
 
 val kotlinVersion = "1.7.20"
 val shadowVersion = "7.1.2"
