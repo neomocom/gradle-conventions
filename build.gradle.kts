@@ -7,11 +7,16 @@ plugins {
 }
 
 group = "com.neomo.conventions"
-version = "0.2.2"
+version = "0.2.3"
 
 val kotlinVersion = "1.7.20"
 val shadowVersion = "7.1.2"
 val ktlintVersion = "11.0.0"
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_11
+    targetCompatibility = JavaVersion.VERSION_11
+}
 
 repositories {
     mavenCentral()
