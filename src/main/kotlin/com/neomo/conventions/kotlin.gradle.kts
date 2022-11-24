@@ -21,7 +21,7 @@ dependencies {
     implementation("io.github.microutils:kotlin-logging-jvm:$kotlinLoggingVersion")
     implementation("org.slf4j:slf4j-api") {
         version {
-            strictly("$slf4jVersion")
+            strictly(slf4jVersion)
         }
     }
     testImplementation("io.kotest:kotest-runner-junit5:$kotestVersion")
