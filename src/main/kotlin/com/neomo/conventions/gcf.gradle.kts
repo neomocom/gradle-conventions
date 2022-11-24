@@ -19,6 +19,8 @@ dependencies {
     implementation("org.http4k:http4k-serverless-gcf:$http4kVersion")
     implementation("org.http4k:http4k-contract:$http4kVersion")
 
+    testImplementation("org.http4k:http4k-testing-kotest:$http4kVersion")
+
     invoker("com.google.cloud.functions.invoker:java-function-invoker:$gcloudInvokerVersion")
 }
 
