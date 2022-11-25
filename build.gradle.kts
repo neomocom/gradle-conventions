@@ -49,6 +49,11 @@ gradlePlugin {
             description = "NEOMO conventions for google cloud functions written in kotlin"
         }
 
+        getByName("com.neomo.conventions.gcf-http4k") {
+            displayName = "NEOMO GCF conventions"
+            description = "NEOMO conventions for google cloud functions written in kotlin with http interface"
+        }
+
         getByName("com.neomo.conventions.lambda") {
             displayName = "NEOMO AWS lambda conventions"
             description = "NEOMO conventions for lambda functions written in kotlin"
