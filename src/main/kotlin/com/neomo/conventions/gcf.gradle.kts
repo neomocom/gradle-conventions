@@ -4,7 +4,7 @@ import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
 
 
 val gcloudInvokerVersion: String by project
-val http4kVersion: String by project
+val slf4jVersion: String by project
 
 plugins {
     id("com.neomo.conventions.kotlin")
@@ -16,10 +16,7 @@ val systemTest: SourceSet by sourceSets.creating
 
 
 dependencies {
-    implementation("org.http4k:http4k-serverless-gcf:$http4kVersion")
-    implementation("org.http4k:http4k-contract:$http4kVersion")
-
-    testImplementation("org.http4k:http4k-testing-kotest:$http4kVersion")
+    implementation("org.slf4j:slf4j-jdk14:$slf4jVersion")
 
     invoker("com.google.cloud.functions.invoker:java-function-invoker:$gcloudInvokerVersion")
 }
