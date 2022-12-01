@@ -45,6 +45,11 @@ tasks.register<Sync>("gcfDistribution") {
     dependsOn(shadowJar)
 }
 
+tasks.register<Zip>("gcfPackage") {
+    from(tasks.getByName<ShadowJar>("shadowJar").outputs.files.singleFile)
+    dependsOn(shadowJar)
+}
+
 tasks.register<JavaExec>("runFunction") {
     mainClass.set("com.google.cloud.functions.invoker.runner.Invoker")
     dependsOn(shadowJar)
