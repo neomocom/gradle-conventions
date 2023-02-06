@@ -9,7 +9,7 @@
 build.gradle.kts
 ```
 plugins {
-    id("com.neomo.gcf") version "0.3.1"
+    id("com.neomo.gcf") version "0.5.0"
 }
 ```
 

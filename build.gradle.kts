@@ -3,15 +3,16 @@ plugins {
     kotlin("jvm") version embeddedKotlinVersion
     `maven-publish`
     id("java-gradle-plugin")
+    id("com.github.ben-manes.versions") version "0.45.0"
     id("com.gradle.plugin-publish") version "1.1.0"
 }
 
 group = "com.neomo.conventions"
-version = "0.4.0"
+version = "0.5.0"
 
-val kotlinVersion = "1.7.20"
+val kotlinVersion = "1.8.0"
 val shadowVersion = "7.1.2"
-val ktlintVersion = "11.0.0"
+val ktlintVersion = "11.1.0"
 
 java {
     sourceCompatibility = JavaVersion.VERSION_11

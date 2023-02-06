@@ -17,6 +17,10 @@ plugins {
     id("org.jlleitschuh.gradle.ktlint")
 }
 
+ktlint {
+    version.set("0.48.2")
+}
+
 dependencies {
     implementation("io.github.microutils:kotlin-logging-jvm:$kotlinLoggingVersion")
     implementation("org.slf4j:slf4j-api") {
