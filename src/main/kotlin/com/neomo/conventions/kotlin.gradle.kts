@@ -2,13 +2,11 @@ package com.neomo.conventions
 
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
-val kotestVersion: String by project
-val mockkVersion: String by project
-val slf4jVersion: String by project
-val kotlinLoggingVersion: String by project
+val libs = the<org.gradle.accessors.dm.LibrariesForLibs>()
 
 repositories {
     mavenCentral()
+    mavenLocal()
 }
 
 plugins {
@@ -18,26 +16,29 @@ plugins {
 }
 
 ktlint {
-    version.set("0.48.2")
+    version.set(libs.versions.ktlint.core.get())
 }
 
 dependencies {
-    implementation("io.github.microutils:kotlin-logging-jvm:$kotlinLoggingVersion")
-    implementation("org.slf4j:slf4j-api") {
+    implementation(libs.kotlin.logging)
+    implementation(libs.slf4j.api) {
         version {
-            strictly(slf4jVersion)
+            strictly(libs.versions.slf4j.get())
         }
     }
-    testImplementation("io.kotest:kotest-runner-junit5:$kotestVersion")
-    testImplementation("io.kotest:kotest-assertions-core:$kotestVersion")
-    testImplementation("io.kotest:kotest-assertions-json:$kotestVersion")
-    testImplementation("io.mockk:mockk:$mockkVersion")
+    testImplementation(libs.kotest.runner.junit5)
+    testImplementation(libs.kotest.assertions.core)
+    testImplementation(libs.kotest.assertions.json)
+    testImplementation(libs.mockk)
+}
+
+kotlin {
+    jvmToolchain(11)
 }
 
 tasks.withType<KotlinCompile>().configureEach {
     kotlinOptions {
         kotlinOptions.allWarningsAsErrors = true
-        jvmTarget = "11"
     }
 }
 

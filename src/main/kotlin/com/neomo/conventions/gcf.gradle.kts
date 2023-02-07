@@ -2,9 +2,7 @@ package com.neomo.conventions
 
 import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
 
-
-val gcloudInvokerVersion: String by project
-val slf4jVersion: String by project
+val libs = the<org.gradle.accessors.dm.LibrariesForLibs>()
 
 plugins {
     id("com.neomo.conventions.kotlin")
@@ -14,11 +12,10 @@ plugins {
 val invoker: Configuration by configurations.creating
 val systemTest: SourceSet by sourceSets.creating
 
-
 dependencies {
-    implementation("org.slf4j:slf4j-jdk14:$slf4jVersion")
+    implementation(libs.slf4j.jdk14)
 
-    invoker("com.google.cloud.functions.invoker:java-function-invoker:$gcloudInvokerVersion")
+    invoker(libs.gcloud.function.invoker)
 }
 
 configurations[systemTest.implementationConfigurationName].extendsFrom(configurations.testImplementation.get())
@@ -57,12 +54,12 @@ tasks.register<JavaExec>("runFunction") {
         "--target",
         project.findProperty("runFunction.target")!!,
         "--port",
-        project.findProperty("runFunction.port") ?: 8080
+        project.findProperty("runFunction.port") ?: 8080,
     )
     // Use only shadow jar in order to be as close to an actual deployment as possible
     doFirst {
         args("--classpath", shadowJar.get().outputs.files.singleFile)
-        if(!project.hasProperty("runFunction.target")) {
+        if (!project.hasProperty("runFunction.target")) {
             throw IllegalArgumentException("No runFunction.target property provided")
         }
     }

@@ -1,14 +1,15 @@
 package com.neomo.conventions
 
 val gitCommitSha: String? by project
-val http4kVersion: String by project
+
+val libs = the<org.gradle.accessors.dm.LibrariesForLibs>()
 
 plugins {
     id("com.neomo.conventions.kotlin")
 }
 
 dependencies {
-    implementation("org.http4k:http4k-serverless-lambda:$http4kVersion")
+    implementation(libs.http4k.serverless.lambda)
 }
 
 tasks.register<Zip>("buildLambdaZip") {

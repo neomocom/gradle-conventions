@@ -1,18 +1,16 @@
+
+@Suppress("DSL_SCOPE_VIOLATION")
 plugins {
     `kotlin-dsl`
     kotlin("jvm") version embeddedKotlinVersion
     `maven-publish`
     id("java-gradle-plugin")
-    id("com.github.ben-manes.versions") version "0.45.0"
-    id("com.gradle.plugin-publish") version "1.1.0"
+    alias(libs.plugins.versions)
+    alias(libs.plugins.publish)
 }
 
 group = "com.neomo.conventions"
-version = "0.5.0"
-
-val kotlinVersion = "1.8.0"
-val shadowVersion = "7.1.2"
-val ktlintVersion = "11.1.0"
+version = "0.6.0"
 
 java {
     sourceCompatibility = JavaVersion.VERSION_11
@@ -31,10 +29,12 @@ publishing {
 }
 
 dependencies {
-    implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion")
-    implementation("org.jetbrains.kotlin.plugin.serialization:org.jetbrains.kotlin.plugin.serialization.gradle.plugin:$kotlinVersion")
-    implementation("com.github.johnrengelman.shadow:com.github.johnrengelman.shadow.gradle.plugin:$shadowVersion")
-    implementation("org.jlleitschuh.gradle:ktlint-gradle:$ktlintVersion")
+    implementation(libs.kotlin.gradle.plugin)
+    implementation(libs.kotlin.gradle.serialization)
+    implementation(libs.shadow.gradle)
+    implementation(libs.ktlint.gradle)
+    implementation(files(libs.javaClass.superclass.protectionDomain.codeSource.location))
+
 }
 
 pluginBundle {
