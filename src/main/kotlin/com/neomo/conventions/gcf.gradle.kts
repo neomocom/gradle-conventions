@@ -41,7 +41,7 @@ tasks.register<Test>("systemTest") {
 
 tasks.register<Sync>("gcfDistribution") {
     from(tasks.getByName<ShadowJar>("shadowJar").outputs.files.singleFile)
-    into("../dist/gcf/" + project.name)
+    into(project.projectDir.absolutePath + "/dist/gcf/")
     dependsOn(shadowJar)
 }
 
