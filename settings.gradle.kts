@@ -16,7 +16,7 @@ dependencyResolutionManagement {
     }
     versionCatalogs {
         create("libs") {
-            from("com.neomo:library-catalog:1.1.3")
+            from("com.neomo:library-catalog:1.2.0")
         }
     }
 }
