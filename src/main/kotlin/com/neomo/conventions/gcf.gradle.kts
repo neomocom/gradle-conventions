@@ -13,8 +13,11 @@ val invoker: Configuration by configurations.creating
 val systemTest: SourceSet by sourceSets.creating
 
 dependencies {
-    implementation(libs.slf4j.jdk14)
-
+    implementation(libs.slf4j.api)
+    implementation(libs.slf4j.bridge.jul)
+    implementation(libs.slf4j.bridge.jcl)
+    implementation(libs.logback.classic)
+    implementation(libs.gcloud.logging.logback)
     invoker(libs.gcloud.function.invoker)
 }
 
