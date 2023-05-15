@@ -13,6 +13,7 @@ val invoker: Configuration by configurations.creating
 val systemTest: SourceSet by sourceSets.creating
 
 dependencies {
+    implementation(platform(libs.gcloud.libraries))
     implementation(libs.slf4j.api)
     implementation(libs.slf4j.bridge.jul)
     implementation(libs.slf4j.bridge.jcl)
