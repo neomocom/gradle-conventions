@@ -10,11 +10,20 @@ plugins {
 }
 
 group = "com.neomo.conventions"
-version = "0.9.0"
+version = "0.9.1"
+
+val javaVersion = JavaLanguageVersion.of(17)
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_19
-    targetCompatibility = JavaVersion.VERSION_19
+    toolchain {
+        languageVersion = javaVersion
+    }
+}
+
+kotlin {
+    jvmToolchain {
+        languageVersion = javaVersion
+    }
 }
 
 repositories {
