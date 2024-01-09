@@ -1,5 +1,10 @@
 # gradle-conventions
 
+## Publish to gradle plugin portal
+*Publishing to the gradle plugin portal can only be done by Benedikt Arnold.*
+
+`./gradlew publishPlugins`
+
 ## Publish to maven local
 
 `./gradlew publishToMavenLocal`
