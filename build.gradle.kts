@@ -10,11 +10,11 @@ plugins {
 }
 
 group = "com.neomo.conventions"
-version = "0.8.1"
+version = "0.9.0"
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_11
-    targetCompatibility = JavaVersion.VERSION_11
+    sourceCompatibility = JavaVersion.VERSION_19
+    targetCompatibility = JavaVersion.VERSION_19
 }
 
 repositories {
@@ -37,32 +37,32 @@ dependencies {
 
 }
 
-pluginBundle {
+gradlePlugin {
     website = "https://github.com/neomocom/gradle-conventions"
     vcsUrl = "https://github.com/neomocom/gradle-conventions"
-    tags = listOf("convention", "kotlin")
-}
-
-gradlePlugin {
     plugins {
         getByName("com.neomo.conventions.gcf") {
             displayName = "NEOMO GCF conventions"
             description = "NEOMO conventions for google cloud functions written in kotlin"
+            tags = listOf("convention", "kotlin", "gcloud")
         }
 
         getByName("com.neomo.conventions.gcf-http4k") {
             displayName = "NEOMO GCF conventions"
             description = "NEOMO conventions for google cloud functions written in kotlin with http interface"
+            tags = listOf("convention", "kotlin", "gcloud", "http4k")
         }
 
         getByName("com.neomo.conventions.lambda") {
             displayName = "NEOMO AWS lambda conventions"
             description = "NEOMO conventions for lambda functions written in kotlin"
+            tags = listOf("convention", "kotlin", "aws", "lambda")
         }
 
         getByName("com.neomo.conventions.kotlin") {
             displayName = "NEOMO kotlin conventions"
             description = "NEOMO conventions for kotlin (ktlint, kotest, mockk)"
+            tags = listOf("convention", "kotlin")
         }
     }
 }
