@@ -10,7 +10,7 @@ plugins {
 }
 
 group = "com.neomo.conventions"
-version = "0.8.0"
+version = "0.8.1"
 
 java {
     sourceCompatibility = JavaVersion.VERSION_11
