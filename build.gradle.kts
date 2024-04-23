@@ -10,7 +10,7 @@ plugins {
 }
 
 group = "com.neomo.conventions"
-version = "0.9.1"
+version = "0.10.3"
 
 val javaVersion = JavaLanguageVersion.of(17)
 
@@ -57,7 +57,7 @@ gradlePlugin {
         }
 
         getByName("com.neomo.conventions.gcf-http4k") {
-            displayName = "NEOMO GCF conventions"
+            displayName = "NEOMO GCF http4k conventions"
             description = "NEOMO conventions for google cloud functions written in kotlin with http interface"
             tags = listOf("convention", "kotlin", "gcloud", "http4k")
         }
@@ -66,6 +66,12 @@ gradlePlugin {
             displayName = "NEOMO AWS lambda conventions"
             description = "NEOMO conventions for lambda functions written in kotlin"
             tags = listOf("convention", "kotlin", "aws", "lambda")
+        }
+
+        getByName("com.neomo.conventions.http4k") {
+            displayName = "NEOMO http4k conventions"
+            description = "NEOMO conventions for http4k (kotlin)"
+            tags = listOf("convention", "kotlin", "http4k")
         }
 
         getByName("com.neomo.conventions.kotlin") {
