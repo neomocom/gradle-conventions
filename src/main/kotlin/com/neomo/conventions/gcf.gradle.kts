@@ -24,7 +24,7 @@ dependencies {
 configurations[systemTest.implementationConfigurationName].extendsFrom(configurations.testImplementation.get())
 configurations[systemTest.runtimeOnlyConfigurationName].extendsFrom(configurations.testRuntimeOnly.get())
 
-val shadowJar = tasks.named<ShadowJar>("mergedShadowJar")
+val shadowJar = tasks.named<ShadowJar>("shadowJar")
 
 tasks.withType<Test>().configureEach {
     useJUnitPlatform()

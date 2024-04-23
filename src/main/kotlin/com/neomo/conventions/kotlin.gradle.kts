@@ -38,10 +38,8 @@ kotlin {
     jvmToolchain(11)
 }
 
-tasks.register<ShadowJar>("mergedShadowJar") {
-    tasks.named<ShadowJar>("shadowJar") {
-        mergeServiceFiles()
-    }
+tasks.named<ShadowJar>("shadowJar") {
+    mergeServiceFiles()
 }
 
 tasks.withType<KotlinCompile>().configureEach {
