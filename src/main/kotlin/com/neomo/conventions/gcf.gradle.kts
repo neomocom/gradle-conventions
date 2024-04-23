@@ -6,7 +6,6 @@ val libs = the<org.gradle.accessors.dm.LibrariesForLibs>()
 
 plugins {
     id("com.neomo.conventions.kotlin")
-    id("com.github.johnrengelman.shadow")
 }
 
 val invoker: Configuration by configurations.creating
@@ -25,9 +24,7 @@ dependencies {
 configurations[systemTest.implementationConfigurationName].extendsFrom(configurations.testImplementation.get())
 configurations[systemTest.runtimeOnlyConfigurationName].extendsFrom(configurations.testRuntimeOnly.get())
 
-val shadowJar = tasks.named<ShadowJar>("shadowJar") {
-    mergeServiceFiles()
-}
+val shadowJar = tasks.named<ShadowJar>("mergedShadowJar")
 
 tasks.withType<Test>().configureEach {
     useJUnitPlatform()
