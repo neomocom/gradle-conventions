@@ -5,11 +5,6 @@ import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
 
 val libs = the<org.gradle.accessors.dm.LibrariesForLibs>()
 
-repositories {
-    mavenCentral()
-    mavenLocal()
-}
-
 plugins {
     kotlin("jvm")
     id("org.jetbrains.kotlin.plugin.serialization")
