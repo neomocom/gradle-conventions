@@ -10,7 +10,7 @@
 rootProject.name = "gradle-conventions"
 
 plugins {
-    id("org.gradle.toolchains.foojay-resolver-convention") version("0.7.0")
+    id("org.gradle.toolchains.foojay-resolver-convention") version("0.8.0")
 }
 
 dependencyResolutionManagement {
@@ -20,7 +20,7 @@ dependencyResolutionManagement {
     }
     versionCatalogs {
         create("libs") {
-            from("com.neomo:library-catalog:1.6.10")
+            from("com.neomo:library-catalog:1.6.16")
         }
     }
 }
