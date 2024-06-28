@@ -29,10 +29,6 @@ dependencies {
     testImplementation(libs.mockk)
 }
 
-kotlin {
-    jvmToolchain(11)
-}
-
 tasks.named<ShadowJar>("shadowJar") {
     mergeServiceFiles()
 }

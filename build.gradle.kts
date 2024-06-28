@@ -10,9 +10,9 @@ plugins {
 }
 
 group = "com.neomo.conventions"
-version = "0.10.7"
+version = "0.11.0"
 
-val javaVersion = JavaLanguageVersion.of(17)
+val javaVersion = JavaLanguageVersion.of(21)
 
 java {
     toolchain {
