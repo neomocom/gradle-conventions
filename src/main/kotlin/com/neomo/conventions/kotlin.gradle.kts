@@ -16,6 +16,12 @@ ktlint {
     version.set(libs.versions.ktlint.core.get())
 }
 
+kotlin {
+    compilerOptions {
+        allWarningsAsErrors = true
+    }
+}
+
 dependencies {
     implementation(libs.kotlin.logging)
     implementation(libs.slf4j.api) {
@@ -31,12 +37,6 @@ dependencies {
 
 tasks.named<ShadowJar>("shadowJar") {
     mergeServiceFiles()
-}
-
-tasks.withType<KotlinCompile>().configureEach {
-    kotlinOptions {
-        kotlinOptions.allWarningsAsErrors = true
-    }
 }
 
 tasks.withType<Test>().configureEach {
