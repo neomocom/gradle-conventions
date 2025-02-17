@@ -1,6 +1,5 @@
 package com.neomo.conventions
 
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
 
 val libs = the<org.gradle.accessors.dm.LibrariesForLibs>()
@@ -9,7 +8,7 @@ plugins {
     kotlin("jvm")
     id("org.jetbrains.kotlin.plugin.serialization")
     id("org.jlleitschuh.gradle.ktlint")
-    id("com.github.johnrengelman.shadow")
+    id("com.gradleup.shadow")
 }
 
 ktlint {
@@ -37,6 +36,9 @@ dependencies {
 
 tasks.named<ShadowJar>("shadowJar") {
     mergeServiceFiles()
+    manifest {
+        attributes["Multi-Release"] = true
+    }
 }
 
 tasks.withType<Test>().configureEach {
