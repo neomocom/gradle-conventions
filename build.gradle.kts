@@ -10,7 +10,7 @@ plugins {
 }
 
 group = "com.neomo.conventions"
-version = "0.11.2"
+version = "0.12.0"
 
 val javaVersion = JavaLanguageVersion.of(21)
 
